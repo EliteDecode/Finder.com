@@ -3,7 +3,7 @@ import axios from "axios";
 const AppContext = React.createContext();
 
 const getLocalStorage = () => {
-  let theme = "theme";
+  let theme = "dark";
   if (localStorage.getItem("theme")) {
     theme = localStorage.getItem("theme");
   }

@@ -5,7 +5,7 @@ import Search from "./Search";
 
 const Routing = () => {
   return (
-    <div className="p-4">
+    <div className="">
       <Routes>
         <Route exact path="/" element={<Results />}></Route>
         <Route exact path="/search" element={<Results />}></Route>

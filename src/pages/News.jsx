@@ -2,9 +2,9 @@ import React from "react";
 
 const News = ({ results }) => {
   return (
-    <div className="sm:px-56 flex flex-wrap justify-between items-center space-y-6">
+    <div className="flex flex-wrap justify-between sm:px-32 px-0 ">
       {results?.map(({ id, links, source, title }) => (
-        <div key={id} className="md:w-2/5 w-full ">
+        <div key={id} className="w-full  border-b-4 border-gray-200 py-6 px-5 ">
           <a
             href={links?.[0].href}
             target="_blank"
