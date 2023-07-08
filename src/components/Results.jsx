@@ -9,19 +9,28 @@ import News from "../pages/News";
 import Video from "../pages/Video";
 
 const Results = () => {
-  const { searchTerm, loading, results, getResults } = useGlobalContext();
+  const {
+    searchTerm,
+    loading,
+    results,
+    getWebsearch,
+    getNewssearch,
+    getImagesearch,
+    getVideoSearch,
+  } = useGlobalContext();
 
   const location = useLocation();
 
   useEffect(() => {
-    if (searchTerm) {
-      if (location.pathname === "/video") {
-        getResults(`/search/q=${searchTerm} video`);
-      } else {
-        getResults(`${location.pathname}/q=${searchTerm}&num=40`);
-      }
+    if (location.pathname === "/news") {
+      getNewssearch(searchTerm);
+    } else if (location.pathname === "/image") {
+      getImagesearch(searchTerm);
+    } else if (location.pathname === "/video") {
+      getVideoSearch(searchTerm);
+    } else {
+      getWebsearch(searchTerm);
     }
-    getResults(`/search/q=${searchTerm}&num=40`);
   }, [searchTerm, location.pathname]);
 
   if (loading) return <Loading />;
